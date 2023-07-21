@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+  <class>MainWindow</class>
+  <widget class="QMainWindow" name="MainWindow">
+    <property name="geometry">
+      <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>700</width>  <!-- Alteração da largura para 800 -->
+        <height>450</height>
+      </rect>
+    </property>
+    <widget class="QWidget" name="centralwidget">
+      <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+          <layout class="QVBoxLayout" name="topLayout">
+            <item>
+              <layout class="QHBoxLayout" name="inputLayout">
+                <item>
+                  <widget class="QLabel" name="input_label">
+                    <property name="text">
+                      <string>input:</string>
+                    </property>
+                    <property name="font">
+                      <font>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                      </font>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QLineEdit" name="input_text">
+                    <property name="enabled">
+                      <bool>false</bool>
+                    </property>
+                  </widget>
+                </item>
+                <item>
+                  <widget class="QPushButton" name="button">
+                    <property name="text">
+                      <string>...</string>
+                    </property>
+                  </widget>
+                </item>
+              </layout>
+            </item>
+            <item>
+              <widget class="QLabel" name="selected_image_label">
+                <property name="text">
+                  <string>imagem selecionada:</string>
+                </property>
+                <property name="font">
+                  <font>
+                    <weight>75</weight>
+                    <bold>true</bold>
+                  </font>
+                </property>
+              </widget>
+            </item>
+            
+            <item>
+              <layout class="QHBoxLayout" name="thumbnailLayout">
+                <item>
+                  <widget class="QFrame">
+                    <layout class="QHBoxLayout">
+                      <item>
+                        <widget class="QLabel" name="thumbnail_label">
+                          <property name="maximumSize">
+                            <size>
+                              <width>350</width>
+                              <height>350</height>
+                            </size>
+                          </property>
+                        </widget>
+                      </item>                      
+                    </layout>
+                  </widget>
+                </item>
+              </layout>
+            </item>
+            <item>
+              <spacer name="verticalSpacer">
+                <property name="orientation">
+                  <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                  <size>
+                    <width>20</width>
+                    <height>40</height>
+                  </size>
+                </property>
+              </spacer>
+            </item>
+            
+            
+          </layout>
+        </item>
+        <item>
+          <widget class="QPushButton" name="generate_button">
+            <property name="text">
+              <string>gerar resultado</string>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QLabel" name="resultado_label">
+            <property name="text">
+              <string>output:</string>
+            </property>
+            <property name="font">
+              <font>
+                <weight>75</weight>
+                <bold>true</bold>
+              </font>
+            </property>
+          </widget>
+        </item>
+        <item>
+          <widget class="QPlainTextEdit" name="resultado_text">
+            <property name="enabled">
+              <bool>false</bool>
+            </property>
+            
+          </widget>
+        </item>
+      </layout>
+    </widget>
+  </widget>
+  <resources />
+  <connections />
+</ui>
