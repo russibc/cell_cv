@@ -7,3 +7,4 @@ Antes de executar o projeto, certifique-se de ter instalado os seguintes itens:
 - Keras: `pip install keras`
 - QtDesigner (PyQt5): `pip install pyqt5`
 - NumPy: `pip install numpy`
+- TensorFlow: `pip install tensorflow`
