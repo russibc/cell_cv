@@ -4,7 +4,6 @@ import sys
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication
 from PyQt5.QtGui import QFont, QPixmap
 from PyQt5.uic import loadUi
-from PyQt5 import QtCore
 
 # proprias
 from image_predictor import ImagePredictor
@@ -36,7 +35,6 @@ class Window(QMainWindow):
         )
         if file_name:
             self.input_text.setText(file_name)
-            self.display_image(file_name)
 
     def classify_leukocyte(self):      
         # Obter o caminho do arquivo da imagem

@@ -2,7 +2,6 @@ import numpy as np
 from keras.preprocessing import image
 from keras import models
 import cv2
-import os
 from model_training import ModelTraining
 
 
@@ -21,16 +20,20 @@ class ImagePredictor:
         # Carregar a imagem usando o OpenCV
         img = cv2.imread(file_name)
 
-        imagem_redimensionada = cv2.resize(img, (290, 290))
+        imagem_redimensionada = cv2.resize(img, (224, 224))
 
         # Pré-processar a imagem
         imageToPredict = np.expand_dims(imagem_redimensionada, axis=0)
 
         # Realizar a classificação usando o modelo
         prediction = self.model.predict(imageToPredict)
-        class_label = "Linfócito" if prediction > 0.5 else "Basófilo"
+
+        class_index = np.argmax(prediction)
+
+        class_labels = ['Linfocito', 'Basofilo']  # Substitua pelos seus rótulos
+        class_label = class_labels[class_index]
         return class_label
 
     def detect_and_contour_cell(self, file_name):
-        class_label = self.get_classification(file_name)    
+        class_label = self.get_classification(file_name)
         return class_label

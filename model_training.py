@@ -10,10 +10,10 @@ class ModelTraining:
     def _build_model(self):
         model = Sequential()
 
-        model.add(Conv2D(32, (3, 3), input_shape=(290, 290, 3), activation="relu"))
+        model.add(Conv2D(32, (3, 3), input_shape=(224, 224, 3), activation="relu"))
         model.add(BatchNormalization())
         model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Conv2D(32, (3, 3), input_shape=(290, 290, 3), activation="relu"))
+        model.add(Conv2D(32, (3, 3), input_shape=(224, 224, 3), activation="relu"))
         model.add(BatchNormalization())
         model.add(MaxPooling2D(pool_size=(2, 2)))
         model.add(Flatten())
@@ -21,11 +21,13 @@ class ModelTraining:
         model.add(Dropout(0.2))
         model.add(Dense(units=128, activation="relu"))
         model.add(Dropout(0.2))
-        model.add(Dense(units=1, activation="sigmoid"))
+        model.add(Dense(units=2, activation="sigmoid"))
 
         model.compile(
             optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"]
         )
+
+        print(model.summary())
         return model
 
     def train(self, training_data_dir, test_data_dir, epochs=5, batch_size=128):
@@ -41,16 +43,16 @@ class ModelTraining:
 
         training_base = training_generate.flow_from_directory(
             training_data_dir,
-            target_size=(290, 290),
+            target_size=(224, 224),
             batch_size=batch_size,
-            class_mode="binary",
+            class_mode="categorical",
         )
 
         test_base = gerador_teste.flow_from_directory(
             test_data_dir,
-            target_size=(290, 290),
+            target_size=(224, 224),
             batch_size=batch_size,
-            class_mode="binary",
+            class_mode="categorical",
         )
 
         self.model.fit(
