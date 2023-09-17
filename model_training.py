@@ -9,10 +9,11 @@ class ModelTraining:
 
     def _build_model(self):
         model = Sequential()
-        model.add(Conv2D(32, (3, 3), input_shape=(575, 575, 3), activation="relu"))
+
+        model.add(Conv2D(32, (3, 3), input_shape=(290, 290, 3), activation="relu"))
         model.add(BatchNormalization())
         model.add(MaxPooling2D(pool_size=(2, 2)))
-        model.add(Conv2D(32, (3, 3), input_shape=(575, 575, 3), activation="relu"))
+        model.add(Conv2D(32, (3, 3), input_shape=(290, 290, 3), activation="relu"))
         model.add(BatchNormalization())
         model.add(MaxPooling2D(pool_size=(2, 2)))
         model.add(Flatten())
@@ -21,12 +22,13 @@ class ModelTraining:
         model.add(Dense(units=128, activation="relu"))
         model.add(Dropout(0.2))
         model.add(Dense(units=1, activation="sigmoid"))
+
         model.compile(
             optimizer="adam", loss="binary_crossentropy", metrics=["accuracy"]
         )
         return model
 
-    def train(self, training_data_dir, test_data_dir, epochs=5, batch_size=32):
+    def train(self, training_data_dir, test_data_dir, epochs=5, batch_size=128):
         training_generate = ImageDataGenerator(
             rescale=1 / 255,
             rotation_range=7,
@@ -39,14 +41,14 @@ class ModelTraining:
 
         training_base = training_generate.flow_from_directory(
             training_data_dir,
-            target_size=(575, 575),
+            target_size=(290, 290),
             batch_size=batch_size,
             class_mode="binary",
         )
 
         test_base = gerador_teste.flow_from_directory(
             test_data_dir,
-            target_size=(575, 575),
+            target_size=(290, 290),
             batch_size=batch_size,
             class_mode="binary",
         )
