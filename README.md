@@ -8,6 +8,8 @@ Antes de executar o projeto, certifique-se de ter instalado os seguintes itens:
 - TensorFlow: `pip install tensorflow`
 - QtDesigner (PyQt5): `pip install pyqt5`
 - NumPy: `pip install numpy`
+- Pillow: `pip install Pillow`
+- SciPy: `pip install scipy`
 
 Após instalar os *softwares*, copie o conteúdo de `window.py` e **exclua** o arquivo.
 
