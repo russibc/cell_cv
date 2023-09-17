@@ -1,6 +1,6 @@
 # Other
-/training_set
-/test_set
+training_set/
+test_set/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
