@@ -11,7 +11,9 @@ Antes de executar o projeto, certifique-se de ter instalado os seguintes itens:
 - Pillow: `pip install Pillow`
 - SciPy: `pip install scipy`
 
-Após instalar os *softwares*, copie o conteúdo de `window.py` e **exclua** o arquivo.
+### Workaround para MS Windows 
+
+Após instalar os *softwares* via `pip`, copie o conteúdo de `window.py` e **exclua** o arquivo.
 
 Em seguida, execute no terminal o comando:
 
