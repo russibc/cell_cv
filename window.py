@@ -2,7 +2,7 @@ import sys
 
 # pyqt5
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QApplication
-from PyQt5.QtGui import QFont, QPixmap
+from PyQt5.QtGui import QFont
 from PyQt5.uic import loadUi
 
 # proprias
