@@ -22,6 +22,7 @@ class Window(QMainWindow):
         self.generate_button.clicked.connect(self.classify_leukocyte)
 
         self.predictor = ImagePredictor()
+        print(self.predictor.get_model().summary())
 
     def open_file_dialog(self):
         options = QFileDialog.Options()
