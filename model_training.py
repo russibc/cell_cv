@@ -1,3 +1,9 @@
+from keras.models import Sequential
+from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from keras.layers import BatchNormalization
+from keras.preprocessing.image import ImageDataGenerator
+from keras.callbacks import EarlyStopping
+
 class ModelTraining:
     def __init__(self):
         self.model = self._build_model()
